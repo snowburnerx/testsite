@@ -1,0 +1,9 @@
+title: General
+data:
+  title_separator: '|'
+  title_position: before
+  site_json_ld_type: organization
+  use_breadcrumbs: true
+  site_name: 'Test Site'
+  organization_name: 'Test Inc.'
+  organization_logo: test-logo.svg
