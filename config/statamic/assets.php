@@ -52,7 +52,7 @@ return [
         |
         */
 
-        'cache' => false,
+        'cache' => 'do_glide',
         'cache_path' => public_path('img'),
 
         /*
@@ -67,7 +67,12 @@ return [
         */
 
         'presets' => [
-            // 'small' => ['w' => 200, 'h' => 200, 'q' => 75, 'fit' => 'crop'],
+          'sm' => ['w' => 640, 'h' => 10000, 'q' => 80, 'fit' => 'cover'],
+          'md' => ['w' => 768, 'h' => 10000, 'q' => 80, 'fit' => 'cover'],
+          'lg' => ['w' => 1024, 'h' => 10000, 'q' => 80, 'fit' => 'cover'],
+          'sm-webp' => ['w' => 640, 'h' => 10000, 'q' => 80, 'fit' => 'cover', 'fm' => 'webp'],
+          'md-webp' => ['w' => 768, 'h' => 10000, 'q' => 80, 'fit' => 'cover', 'fm' => 'webp'],
+          'lg-webp' => ['w' => 1024, 'h' => 10000, 'q' => 80, 'fit' => 'cover', 'fm' => 'webp'],
         ],
 
     ],

@@ -42,6 +42,30 @@ return [
             'visibility' => 'public',
         ],
 
+        'do_spaces' => [
+            'driver' => 's3',
+            'key' => env('DO_SPACES_KEY'),
+            'secret' => env('DO_SPACES_SECRET'),
+            'endpoint' => env('DO_SPACES_ENDPOINT'),
+            'region' => env('DO_SPACES_REGION'),
+            'bucket' => env('DO_SPACES_BUCKET'),
+            'root' => env('DO_SPACES_ROOT'),
+            'url' => env('DO_SPACES_URL'),
+            'visibility' => 'public',
+        ],
+
+        'do_glide' => [
+            'driver' => 's3',
+            'key' => env('DO_GLIDE_KEY'),
+            'secret' => env('DO_GLIDE_SECRET'),
+            'endpoint' => env('DO_GLIDE_ENDPOINT'),
+            'region' => env('DO_GLIDE_REGION'),
+            'bucket' => env('DO_GLIDE_BUCKET'),
+            'root' => env('DO_GLIDE_ROOT'),
+            'url' => env('DO_GLIDE_URL'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
