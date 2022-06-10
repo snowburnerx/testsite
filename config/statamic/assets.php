@@ -52,7 +52,7 @@ return [
         |
         */
 
-        'cache' => 'do_glide',
+        'cache' => 'assets',
         'cache_path' => public_path('img'),
 
         /*

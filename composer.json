@@ -17,7 +17,8 @@
         "laravel/sanctum": "^2.14",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.0.13",
-        "statamic/cms": "3.3.*"
+        "statamic/cms": "3.3.*",
+        "transformstudios/events": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

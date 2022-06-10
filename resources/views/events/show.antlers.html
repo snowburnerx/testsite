@@ -1,36 +1,58 @@
 <div class="w-full max-w-sm  mx-auto py-12 px-5 min-h-screen flex flex-col gap-5">
-    <div class="text-sm font-semibold uppercase tracking-widest"> Currently viewing:
-        {{ title }}</div>
-    <div class="w-full grid grid-cols-3 gap-3 bg-white rounded-2xl p-2">
-        <div class="aspect-square overflow-hidden rounded-xl">
-            <img src="{{ featured_media }}">
-        </div>
-        <div class="col-span-2 p-2">
+ <div
+      class="flex items-start justify-start text-blue-500"
+    >
+      <a
+        class="flex items-center justify-center"
+        href="/events"
+      >
+        Events List
+      </a>
+    </div>
+
+  <div class="w-full grid grid-cols-3 gap-3 bg-white rounded-2xl p-2">
+    <div class="aspect-square overflow-hidden rounded-xl">
+      <img class="aspect-square overflow-hidden rounded-xl object-cover h-full w-full" src="{{ featured_media }}">
+    </div>
+    <div class="col-span-2 p-2">
+      <div class="text-xl font-semibold">
+        {{ title }}
+      </div>
+      <div>{{ content | safe_truncate:40:... }}</div>
+    </div>
+  </div>
+  <a class="py-1.5 px-4 bg-blue-500 rounded-lg text-center font-medium text-white"
+    download="{{ title }}.ics" href="{{ events:download_link event="{{id}}" }}">
+    Save Event
+  </a>
+
+  <div class="flex flex-col text-sm font-medium gap-2">
+    <div>Title: <span class="p-1 rounded-md bg-neutral-200">{{ title }}</span></div>
+    <div>ID: <span class="p-1 rounded-md bg-neutral-200">{{ id }}</span></div>
+    <div>All Day: <span class="p-1 rounded-md bg-neutral-200">{{ all_day ? "🟢" : "🔴" }}</span></div>
+    <div>Multi Day: <span class="p-1 rounded-md bg-neutral-200">{{ multi_day ? "🟢" : "🔴" }}</span></div>
+    <div>Recurrence: <span class="p-1 rounded-md bg-neutral-200">{{ recurrence }}</span></div>
+    <div>Start Date: <span class="p-1 rounded-md bg-neutral-200">{{ start_date }}</span></div>
+    <div>Start Time: <span class="p-1 rounded-md bg-neutral-200">{{ start_time }}</span></div>
+    <div>End Time: <span class="p-1 rounded-md bg-neutral-200">{{ end_time }}</span></div>
+  </div>
+
+  <div class="h-0.5 w-full rounded-full bg-neutral-200 my-8"></div>
+
+  <div class="flex flex-col gap-3">
+    <div class="text-sm font-semibold uppercase tracking-widest">More</div>
+    {{ collection:events sort="date:asc" :id:not="id" }}
+      <a href="{{ url }}">
+        <div class="w-full grid grid-cols-3 gap-3 bg-white rounded-2xl p-2">
+            <img class="aspect-square overflow-hidden rounded-xl object-cover h-full w-full" src="{{ featured_media }}">
+          <div class="col-span-2 p-2">
             <div class="text-xl font-semibold">
-                {{ title }}
+              {{ title }}
             </div>
             <div>{{ content | safe_truncate:40:... }}</div>
+          </div>
         </div>
-    </div>
-
-    <div class="h-0.5 w-full rounded-full bg-neutral-200 my-8"></div>
-
-    <div class="flex flex-col gap-3">
-        <div class="text-sm font-semibold uppercase tracking-widest">More</div>
-        {{ collection:events sort="date:asc" :id:not="id" }}
-            <a href="{{ url }}">
-                <div class="w-full grid grid-cols-3 gap-3 bg-white rounded-2xl p-2">
-                    <div class="aspect-square overflow-hidden rounded-xl">
-                        <img src="{{ featured_media }}">
-                    </div>
-                    <div class="col-span-2 p-2">
-                        <div class="text-xl font-semibold">
-                            {{ title }}
-                        </div>
-                        <div>{{ content | safe_truncate:40:... }}</div>
-                    </div>
-                </div>
-            </a>
-        {{ /collection:events }}
-    </div>
+      </a>
+    {{ /collection:events }}
+  </div>
 </div>

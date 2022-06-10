@@ -7,7 +7,7 @@ sections:
         handle: featured_media
         field:
           mode: grid
-          container: do_assets
+          container: assets
           restrict: false
           allow_uploads: true
           show_filename: true
@@ -31,6 +31,8 @@ sections:
           type: markdown
           display: Content
           localizable: true
+      -
+        import: event
   sidebar:
     display: Sidebar
     fields:
