@@ -1,0 +1,47 @@
+{{ partial:container }}
+  <div x-data="{ active: null }">
+    <div class="mx-auto divide-y-2 divide-neutral-200 dark:divide-neutral-700">
+      <h2
+        class="text-center text-3xl tracking-tight font-bold text-neutral-900 dark:text-neutral-100 sm:text-4xl sm:tracking-tight">
+        {{ title ?? "Frequently Asked Questions" }}
+      </h2>
+      {{ if faqs }}
+        {{ faqs }}
+          <dl x-data="{
+              id: {{ index }},
+              get expanded() {
+              return this.active === this.id
+            },
+            set expanded(value) {
+            this.active = value ? this.id : null
+            },
+          }" role="region" class="mt-6 space-y-6 divide-y divide-neutral-200">
+            <div class="pt-6">
+              <dt class="text-lg">
+                <!-- Expand/collapse question button -->
+                <button x-on:click="expanded = !expanded" :aria-expanded="expanded" type="button"
+                  class="text-left w-full flex justify-between items-start text-neutral-400" aria-controls="faq-0"
+                  aria-expanded="false">
+                  <span class="font-medium text-neutral-900 dark:text-neutral-100"> {{ question }}</span>
+                  <span class="ml-6 h-7 flex items-center">
+                    <svg x-show="!expanded" class="rotate-0 h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg"
+                      fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                    <svg x-show="expanded" class="-rotate-180 h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg"
+                      fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </button>
+              </dt>
+              <dd x-show="expanded" x-collapse class="mt-2 pr-12" id="faq-0">
+                <p class="text-base text-neutral-500">{{ answer }}</p>
+              </dd>
+            </div>
+          </dl>
+        {{ /faqs }}
+      {{ /if }}
+    </div>
+  </div>
+{{ /partial:container }}

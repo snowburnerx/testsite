@@ -1,0 +1,31 @@
+<div class="relative bg-bluebird-500">
+  <div class="absolute inset-0">
+    <img class="h-full w-full object-cover" src="{{ glide:background_media preset="xl-webp" filter="greyscale" }}"
+      alt="">
+    <div class="absolute inset-0 bg-bluebird-500 mix-blend-multiply" aria-hidden="true"></div>
+  </div>
+  {{ partial:container v_padding="py-24 sm:py-32" }}
+    <div class="relative text-white">
+      {{ if icon }}
+        <div class="text-5xl opacity-80">{{ font_awesome:icon }}</div>
+      {{ /if }}
+      <div class="mt-8 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        <h1>{{ title }}</h1>
+      </div>
+      {{ if subtitle }}
+        <div class="mt-6 max-w-3xl text-xl opacity-80">
+          <p>{{ subtitle }}</p>
+        </div>
+      {{ /if }}
+      {{ if buttons }}
+        <div class="mt-9">
+          <div class="grid grid-cols-1 md:flex md:flex-wrap gap-3">
+            {{ buttons }}
+              {{ partial:components/button }}
+            {{ /buttons }}
+          </div>
+        </div>
+      {{ /if }}
+    </div>
+  {{ /partial:container }}
+</div>

@@ -1,0 +1,20 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        import: required_content
+        config:
+          title:
+            required: true
+      -
+        import: page_builder
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+title: 'GraphQL Testing'

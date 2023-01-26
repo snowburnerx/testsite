@@ -1,0 +1,15 @@
+{{ partial:container }}
+  <div class="flex flex-col space-y-4">
+    <div class="flex flex-col space-y-1">
+      {{ partial:components/typography/h4 :content="title" }}
+      {{ partial:components/typography/description :content="description" color="text-neutral-400 dark:text-neutral-500" class="leading-tight" }}
+    </div>
+
+    <div class="mt-12 grid w-full grid-flow-row gap-3 md:gap-12">
+      {{ session_list }}
+        {{ partial:components/cards/session_card }}
+      {{ /session_list }}
+    </div>
+
+  </div>
+{{ /partial:container }}

@@ -1,0 +1,75 @@
+{{ partial:container }}
+  {{ weekend_series }}
+    {{ messages as="items" }}
+      {{ items sort="air_date:desc" limit="1" }}
+        <div class="grid grid-cols-1 md:grid-cols-2 items-start justify-start gap-3 gap-y-3">
+          <div class="col-span-1 grid grid-cols-1 gap-3">
+            <div
+              class="grid w-full grid-cols-1 rounded-3xl border border-neutral-100 bg-white p-3 shadow-md dark:border-none dark:bg-neutral-800 dark:shadow-highlight">
+              <div class="col-span-1">
+                <div class="relative aspect-video overflow-hidden rounded-2xl">
+                  {{ partial:components/content/image :image="featured_media" class="object-cover object-center" }}
+                  <div
+                    class="absolute bottom-0 left-0 rounded-tr-2xl border-t border-r border-l-0 border-b-0 border-neutral-500/50 bg-black/50 text-sm font-medium uppercase tracking-wide text-white">
+                    <a href="{{ youtube_url }}" target="_blank">
+                      <div class="py-1.5 px-3">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>YouTube</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <a href="{{ weekend_series:url }}" class="mt-5 flex flex-col space-y-0.5 px-2">
+                  {{ partial:components/typography/caption :content="air_date || date" class="font-medium" color="text-neutral-400 dark:text-neutral-500" }}
+                  {{ partial:components/typography/h6 :content="title" class="font-medium" }}
+                  {{ speakers }}
+                    {{ partial:components/typography/description :content="name" class="text-sm" color="text-neutral-400 dark:text-neutral-500" }}
+                  {{ /speakers }}
+                </a>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div
+                class="rounded-3xl border border-neutral-100 bg-white p-3 shadow-md dark:border-none dark:bg-neutral-800 dark:shadow-highlight">
+                <div class="relative flex aspect-video items-center justify-center rounded-2xl bg-neutral-100">
+                  <i class="fa-duotone fa-file-lines text-7xl text-bluebird-400"></i>
+                </div>
+                <div class="pl-2 mt-2">
+                  {{ partial:components/typography/description content="Message Notes" class="font-medium" }}
+                </div>
+              </div>
+              <div
+                class="rounded-3xl border border-neutral-100 bg-white p-3 shadow-md dark:border-none dark:bg-neutral-800 dark:shadow-highlight">
+                <div class="relative flex aspect-video items-center justify-center rounded-2xl bg-neutral-100">
+                  <i class="fa-duotone fa-comments text-7xl text-bluebird-400"></i>
+                </div>
+                <div class="pl-2 mt-2">
+                  {{ partial:components/typography/description content="Table Talk" class="font-medium" }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-1 grid grid-cols-1 gap-y-3">
+            {{ songs }}
+              <div class="relative overflow-hidden rounded-3xl bg-white p-3">
+                {{ partial:components/content/image :image="album_artwork" class="object-cover object-center absolute inset-0 h-full w-full z-0" }}
+                <div class="absolute inset-0 h-full w-full rounded-3xl bg-black/20 backdrop-blur-md"></div>
+                <div class="relative grid grid-cols-5 gap-3">
+                  <div class="col-span-1 aspect-square overflow-hidden rounded-2xl shadow-md">
+                    {{ partial:components/content/image :image="album_artwork" class="object-cover object-center" }}
+                  </div>
+                  <div class="col-span-4 flex flex-col items-start justify-center text-white">
+                    {{ partial:components/typography/description :content="title" class="font-medium" }}
+                    {{ partial:components/typography/description :content="subtitle" }}
+                  </div>
+                </div>
+              </div>
+            {{ /songs }}
+          </div>
+        </div>
+      {{ /items }}
+    {{ /messages }}
+  {{ /weekend_series }}
+{{ /partial:container }}

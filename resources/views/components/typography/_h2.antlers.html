@@ -1,0 +1,9 @@
+<div class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight {{ color }} {{ class }}">
+  <h2>
+    {{ if (content | word_count) >= 3 }}
+      {{ content | widont }}
+    {{ else }}
+      {{ content }}
+    {{ /if }}
+  </h2>
+</div>

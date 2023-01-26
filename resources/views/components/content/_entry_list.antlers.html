@@ -1,0 +1,24 @@
+<section class="relative">
+  {{ partial:container }}
+    <div class="flex flex-col space-y-4">
+      <div class="flex flex-col space-y-1">
+        {{ partial:components/typography/h4 :content="title" }}
+        {{ partial:components/typography/description :content="description" color="text-neutral-400 dark:text-neutral-500" class="leading-tight" }}
+      </div>
+      {{ if entries }}
+        <div class="grid grid-cols-2 gap-2">
+          {{ entries }}
+            <a href="{{ url }}" target="_self" class="block">
+              <div
+                class="col-span-1 flex flex-col gap-2 rounded-3xl border border-neutral-100 bg-white p-2 shadow-md dark:border-none dark:bg-neutral-800 dark:shadow-highlight">
+                {{ partial:components/content/image :image="featured_media" class="rounded-2xl border border-neutral-100 aspect-video
+                      dark:border-neutral-700" }}
+                {{ partial:components/typography/h6 :content="title" class="font-medium text-sm pl-2 md:pl-4 py-1" }}
+              </div>
+            </a>
+          {{ /entries }}
+        </div>
+      {{ /if }}
+    </div>
+  {{ /partial:container }}
+</section>

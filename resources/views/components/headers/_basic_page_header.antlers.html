@@ -1,0 +1,20 @@
+<header class="relative bg-charcoal-200 bg-cover bg-center py-12 px-5 sm:py-12 lg:py-16"
+  style="background-image: url('{{ glide:background_media preset="md" }}');">
+  <div class="absolute inset-0 z-0 h-full w-full bg-black/20"></div>
+  <div
+    class="relative z-10 mx-auto w-full max-w-sm sm:max-w-xl md:max-w-3xl lg:max-w-6xl {{ text_style ?? "text-center" }}">
+    <div
+      class="w-full text-5xl font-black uppercase leading-none tracking-[-0.07em] text-neutral-100 sm:text-7xl md:text-9xl">
+      <h1>
+        {{ title }}
+      </h1>
+    </div>
+    {{ if show_subtitle }}
+      {{ if subtitle }}
+        <div class="text-xl font-medium uppercase text-neutral-200">
+          <p>{{ subtitle }}</p>
+        </div>
+      {{ /if }}
+    {{ /if }}
+  </div>
+</header>

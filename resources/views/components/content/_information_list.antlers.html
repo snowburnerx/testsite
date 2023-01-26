@@ -1,0 +1,17 @@
+{{ partial:container }}
+  <div class="flex flex-col space-y-4">
+    <div class="flex flex-col space-y-1">
+      {{ partial:components/typography/h4 :content="title" }}
+      {{ partial:components/typography/description :content="description" color="text-neutral-400 dark:text-neutral-500" class="leading-tight" }}
+    </div>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {{ information_cards }}
+        <div class="col-span-1 flex flex-col gap-2 rounded-3xl border border-neutral-200 p-2">
+          {{ partial:components/content/image :image="media" class="rounded-2xl border border-neutral-100 aspect-video" }}
+          {{ partial:components/typography/h6 :content="title" class="font-medium text-sm pl-2 py-1" }}
+          {{ partial:components/typography/description :content="description" class="pl-2 py-1" }}
+        </div>
+      {{ /information_cards }}
+    </div>
+  </div>
+{{ /partial:container }}

@@ -1,0 +1,6 @@
+{{ partial:container }}
+  <div class="flex flex-col space-y-3 mx-auto {{ text_alignment ?? "text-center" }}">
+    {{ partial:components/typography/h4 :content="title ?? null" }}
+    {{ partial:components/typography/paragraph :content="description" }}
+  </div>
+{{ /partial:container }}
